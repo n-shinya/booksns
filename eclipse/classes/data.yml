@@ -1,0 +1,76 @@
+# Test data
+
+Circle(circle1):
+    name:          flect
+    secretKey:     secret
+
+Circle(circle2):
+    name:          friends
+    secretKey:     secret
+
+User(user1):
+    name:       n-shinya
+    password:   secret
+    circles:
+          - circle1
+          - circle2
+
+User(user2):
+    name:       a-testuser
+    password:   secret
+    circles:
+          - circle1
+          
+Book(book1):
+    title:        たのしいRuby第3版
+    author:       高橋 征義
+    publisher:    ソフトバンククリエイティブ
+    ebook:        false
+    imageUrl:     http://images.amazon.com/images/G/01/richmedia/images/cover.gif
+    users:
+          - user1          
+
+Book(book2):
+    title:        Effective Java 第2版 (The Java Series)
+    author:       Joshua Bloch
+    publisher:    ピアソンエデュケーション
+    ebook:        false
+    imageUrl:     http://ec2.images-amazon.com/images/I/51E1m-weAXL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU09_.jpg
+    users:
+          - user1          
+          - user2          
+
+Comment(comment1):
+    book:         book1
+    user:         user1
+    comment:      >
+                                             これは良書！とりあえずRubyを勉強するならこれですね。
+                                             
+Comment(comment2):
+    book:         book1
+    user:         user2
+    comment:      >
+                                             ちょっと簡単すぎる気もしますが、
+                                             よい本ですよ！
+
+Comment(comment3):                                             
+    book:         book2
+    user:         user1
+    comment:      >
+                  Javaをやるならこれ。
+
+Status(status1):
+    book:        book1
+    user:        user1
+    status:      1
+
+Status(status2):
+    book:        book2
+    user:        user1
+    status:      2
+
+Status(status3):
+    book:        book2
+    user:        user2
+    status:      3
+    
