@@ -1,0 +1,28 @@
+#{extends 'main.html' /}
+#{set title:'検索結果' /}
+<!-- http://127.0.0.1:9000/search?keywords=ruby&index=Books&pageNumber=1 -->
+#{if books.size() > 1}
+<h1>${totalResult}件見つかりました。</h1>
+#{/if}
+#{else}
+<h1>入力したキーワードでは見つかりませんでした。</h1>
+#{/else}
+<ul>
+    #{list items:books, as:'book' }
+		<h2>${book_index}</h2>
+		<img src="${book.imageUrl}" />
+        <li>タイトル:${book.title}</li>
+        <li>著者：${book.author}</li>
+        <li>出版社：${book.publisher}</li>
+    #{/list}
+</ul>
+#{if books.size() > 1}
+    #{if totalPage > 1 && pageNumber != 1}
+        %{num = pageNumber - 1}%
+        <a href="@{Application.results(num,keywords)}">前へ</a>
+    #{/if}
+    #{if totalPage > 1 && pageNumber != totalPage}
+        %{num = pageNumber + 1}%
+        <a href="@{Application.results(num,keywords)}">次へ</a>
+    #{/if}
+#{/if}

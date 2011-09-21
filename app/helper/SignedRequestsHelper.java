@@ -32,8 +32,8 @@ public class SignedRequestsHelper {
 	private static final String REQUEST_METHOD = "GET";
 
 	private String endpoint = "ecs.amazonaws.jp";
-	private String awsAccessKeyId = "dummy";
-	private String awsSecretKey = "dummy";
+	private String awsAccessKeyId = "xxx";
+	private String awsSecretKey = "xxx";
 
 	private SecretKeySpec secretKeySpec = null;
 	private Mac mac = null;
@@ -114,7 +114,10 @@ public class SignedRequestsHelper {
 	}
 
 	private String percentEncodeRfc3986(String s) {
-		String out;
+		if(s == null) {
+			return "";
+		}
+		String out;	
 		try {
 			out = URLEncoder.encode(s, UTF8_CHARSET).replace("+", "%20")
 					.replace("*", "%2A").replace("%7E", "~");
