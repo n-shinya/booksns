@@ -1,0 +1,20 @@
+#{extends 'main.html' /}
+#{set title:'登録' /}
+
+<img src="${book.imageUrl}" />
+<p>タイトル：${book.title}</p>
+<p>著者：${book.author}</p>
+<p>出版社：${book.publisher}</p>
+
+#{form @Application.save(book.isbn)}
+	<p>
+		<label for="comment">コメント:</label>
+		<textarea name="comment" ></textarea>
+		<input type="radio" name="status" value="1">つんでる
+		<input type="radio" name="status" value="2">よんでる
+		<input type="radio" name="status" value="3">よんだ
+		<input type="radio" name="status" value="4">ほしい
+		<input type="submit" value="登録" />
+		
+	</p>
+#{/form}

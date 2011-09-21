@@ -8,6 +8,10 @@ GET     /                                       Application.index
 GET     /search                                Application.search
 # results
 GET     /results                                Application.results
+# register
+GET     /register                                Application.register
+# save
+POST     /save                                Application.save
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

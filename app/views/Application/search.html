@@ -4,5 +4,9 @@
 <h3>検索するキーワードを入力してください</h3>
 
 #{form @Application.results()}
-    <input type>
+	<p>
+	    <label for="keywords">キーワード：</label>
+    	<input type="text" name="keywords" />
+    	<input type="submit" value="検索" />
+    </p>
 #{/form}
