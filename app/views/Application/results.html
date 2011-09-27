@@ -2,7 +2,7 @@
 #{set title:'検索結果' /}
 <!-- http://127.0.0.1:9000/search?keywords=ruby&index=Books&pageNumber=1 -->
 #{if result.books.size() > 1}
-<h1>${totalResult}件見つかりました。</h1>
+<h1>${result.totalResult}件見つかりました。</h1>
 #{/if}
 #{else}
 <h1>入力したキーワードでは見つかりませんでした。</h1>

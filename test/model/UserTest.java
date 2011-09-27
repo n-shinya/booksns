@@ -1,9 +1,12 @@
 package model;
 
-import java.util.ArrayList;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.List;
 
-import models.Circle;
 import models.User;
 
 import org.junit.Before;
@@ -32,5 +35,4 @@ public class UserTest extends UnitTest {
 		assertEquals(users.get(0).circles.get(0).name, "flect");
 		assertEquals(users.get(0).circles.get(1).name, "friends");
 	}
-
 }

@@ -9,16 +9,16 @@ import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import dto.ResultDto;
-
 import play.db.jpa.Model;
 import play.libs.WS;
-import play.libs.XPath;
 import play.libs.WS.HttpResponse;
+import play.libs.XPath;
+import dto.ResultDto;
 
 /**
  * 本のモデルです。
@@ -63,6 +63,11 @@ public class Book extends Model {
 	@ManyToMany
 	public List<User> users;
 	
+	/**
+	 * 関連する本のメモです。
+	 */
+	@OneToMany
+	public List<BookMemo> bookMemos;
 	
 	/**
 	 * キーワードで本を検索します。

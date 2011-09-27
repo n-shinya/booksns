@@ -1,4 +1,45 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
-
-Hello!
+<ul>
+    <h2>つんでる</h2>
+    #{list items:unreads, as:'item' }
+        <img src="${item.book.imageUrl}" id="isbn${item.book.isbn}"/>
+    #{/list}
+    <hr />
+    <h2>よんでる</h2>
+    #{list items:readings, as:'item' }
+        <img src="${item.book.imageUrl}" id="isbn${item.book.isbn}"/>
+    #{/list}
+    <hr />
+    <h2>よんだ</h2>
+    #{list items:reads, as:'item' }
+        <img src="${item.book.imageUrl}" id="isbn${item.book.isbn}" />
+    #{/list}
+    <hr />
+    <h2>ほしい</h2>
+    #{list items:wants, as:'item' }
+        <img src="${item.book.imageUrl}" id="isbn${item.book.isbn}" />
+    #{/list}
+</ul>
+<a href="@{Application.search()}">ほんをさがす</a>
+<script type="text/javascript">
+$(function(){
+    #{list items:allbooks, as:'item' }
+    $('#isbn${item.book.isbn}').qtip({
+        content: '${item.comment}',
+        show: 'mouseover', 
+        hide: 'mouseout',
+        style: {
+                  border: {
+                     width: 5,
+                     radius: 1
+                  },
+                  padding: 5,
+                  textAlign: 'left',
+                  tip: true, // Give it a speech bubble tip with automatic corner detection
+                  name: 'cream' // Style it according to the preset 'cream' style
+               }
+    });
+    #{/list}
+});
+</script>

@@ -40,37 +40,25 @@ Book(book2):
           - user1          
           - user2          
 
-Comment(comment1):
-    book:         book1
-    user:         user1
-    comment:      >
-                                             これは良書！とりあえずRubyを勉強するならこれですね。
-                                             
-Comment(comment2):
-    book:         book1
-    user:         user2
+BookMemo(memo1):
+    book:        book1
+    user:        user1
+    status:      1
     comment:      >
                                              ちょっと簡単すぎる気もしますが、
                                              よい本ですよ！
 
-Comment(comment3):                                             
-    book:         book2
-    user:         user1
-    comment:      >
-                  Javaをやるならこれ。
-
-Status(status1):
-    book:        book1
-    user:        user1
-    status:      1
-
-Status(status2):
+BookMemo(memo2):
     book:        book2
     user:        user1
     status:      2
+    comment:      >
+                  Javaをやるならこれ。
 
-Status(status3):
+BookMemo(memo3):
     book:        book2
     user:        user2
     status:      3
+    comment:      >
+                                              最高。
     

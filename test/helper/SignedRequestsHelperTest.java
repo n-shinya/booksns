@@ -25,16 +25,6 @@ public class SignedRequestsHelperTest extends UnitTest {
 		params.put("ItemPage", "1");
 		SignedRequestsHelper srh = new SignedRequestsHelper();
 		String url = srh.sign(params);
-		System.out.println(url);
-		HttpResponse res = WS.url(new SignedRequestsHelper().sign(params)).get();
-		Document doc = res.getXml();
-
-		for(Node node : XPath.selectNodes("/ItemSearchResponse/Items/Item", doc)) {
-			System.out.println(XPath.selectNode("ItemAttributes/Title", node).getTextContent());
-			System.out.println(XPath.selectNode("ItemAttributes/Author", node).getTextContent());
-			System.out.println(XPath.selectNode("ItemAttributes/Manufacturer", node).getTextContent());
-			System.out.println(XPath.selectNode("MediumImage/URL", node).getTextContent());
-		}
 		// とりあえず
 		assertNotNull(url);
 	}
