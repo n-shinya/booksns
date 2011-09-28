@@ -5,11 +5,22 @@ import java.util.List;
 
 import models.Book;
 import models.BookMemo;
+import models.User;
+import play.mvc.Before;
 import play.mvc.Controller;
+import play.mvc.With;
 import dto.ResultDto;
 
+@With(Secure.class)
 public class Application extends Controller {
-
+	
+	@Before
+	static void setConnectedUser() {
+		if(Security.isConnected()) {
+			renderArgs.put("user", Security.connected());
+		}
+	}
+	
 	// TODO ちゃんとやる
 	public static void index() {
 		List<BookMemo> unreads 
@@ -53,6 +64,7 @@ public class Application extends Controller {
 		bookMemo.book = book;
 		bookMemo.status = status;
 		bookMemo.comment = comment;
+		bookMemo.user = User.find("byName", Security.connected()).first();
 		bookMemo.save();
 		index();
 	}

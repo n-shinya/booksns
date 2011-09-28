@@ -29,4 +29,9 @@ public class User extends Model {
 	 */
 	@ManyToMany
 	public List<Circle> circles;
+	
+	public static User connect(String username, String password) {
+		return find("byNameAndPassword", username,password).first();
+	}
+	
 }

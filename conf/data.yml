@@ -1,0 +1,22 @@
+# Test data
+
+Circle(circle1):
+    name:          flect
+    secretKey:     secret
+
+Circle(circle2):
+    name:          friends
+    secretKey:     secret
+
+User(user1):
+    name:       n-shinya
+    password:   secret
+    circles:
+          - circle1
+          - circle2
+
+User(user2):
+    name:       a-testuser
+    password:   secret
+    circles:
+          - circle1
